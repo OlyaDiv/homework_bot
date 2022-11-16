@@ -74,9 +74,7 @@ def check_response(response):
 
 
 def parse_status(homework):
-    """Извлекает из информации о конкретной домашней работе
-    статус этой работы.
-    """
+    """Извлекает из информации о конкретной домашней работе статус работы."""
     if 'homework_name' not in homework:
         logger.error('Неизвестное имя домашней работы')
         raise KeyError('Неизвестное имя домашней работы')
@@ -90,9 +88,7 @@ def parse_status(homework):
 
 
 def check_tokens():
-    """Проверяет доступность переменных окружения,
-    которые необходимы для работы программы.
-    """
+    """Проверяет доступность переменных окружения."""
     if all((PRACTICUM_TOKEN, TELEGRAM_CHAT_ID, TELEGRAM_TOKEN)):
         return True
     else:
