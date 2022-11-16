@@ -64,7 +64,7 @@ def check_response(response):
     if type(response['homeworks']) != list:
         logger.error('Ответ не является списком')
         raise TypeError('Ответ не является списком')
-    if response['homeworks'] == None:
+    if response['homeworks'] is None:
         logger.error('Список домашних работ не содержит элементов')
         raise ValueError('Список домашних работ не содержит элементов')
     if 'homeworks' not in response:
@@ -74,7 +74,9 @@ def check_response(response):
 
 
 def parse_status(homework):
-    """Извлекает из информации о конкретной домашней работе статус этой работы."""
+    """Извлекает из информации о конкретной домашней работе
+    статус этой работы.
+    """
     if 'homework_name' not in homework:
         logger.error('Неизвестное имя домашней работы')
         raise KeyError('Неизвестное имя домашней работы')
@@ -88,7 +90,9 @@ def parse_status(homework):
 
 
 def check_tokens():
-    """Проверяет доступность переменных окружения, которые необходимы для работы программы."""
+    """Проверяет доступность переменных окружения,
+    которые необходимы для работы программы.
+    """
     if all((PRACTICUM_TOKEN, TELEGRAM_CHAT_ID, TELEGRAM_TOKEN)):
         return True
     else:
