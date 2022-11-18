@@ -1,0 +1,2 @@
+class MyHTTPErrorException(Exception):
+    pass
