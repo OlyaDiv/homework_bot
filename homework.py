@@ -44,7 +44,7 @@ def send_message(bot: Bot, message: str) -> None:
     Принимает на вход экземпляр класса Bot и
     строку с текстом сообщения.
     """
-    logger.debug('Формирование сообщения') 
+    logger.debug('Формирование сообщения')
     try:
         bot.send_message(TELEGRAM_CHAT_ID, message)
     except TelegramError:
@@ -56,8 +56,7 @@ def get_api_answer(current_timestamp: int) -> dict:
     В качестве параметра функция получает временную метку.
     """
     logger.debug('Выполнение запроса к API')
-    #timestamp = current_timestamp or int(time.time())
-    timestamp = 0
+    timestamp = current_timestamp or int(time.time())
     params = {'from_date': timestamp}
     request_params = dict(
         url=ENDPOINT,
@@ -153,5 +152,5 @@ if __name__ == '__main__':
     logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s, %(levelname)s, %(message)s, %(name)s, %(lineno)s'
-)
+    )
     main()
