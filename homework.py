@@ -147,7 +147,9 @@ def main() -> None:
             if check_response(response) != []:
                 homework = check_response(response)[0]
                 message = parse_status(homework)
-                current_timestamp = response.get('current_date', current_timestamp)
+                current_timestamp = response.get(
+                    'current_date', current_timestamp
+                )
             else:
                 logger.debug('Статус работы не поменялся')
                 message = 'Нет новых статусов'
